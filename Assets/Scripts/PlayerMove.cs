@@ -104,9 +104,9 @@ public class PlayerMove : MonoBehaviour
         //{
         //    rb.AddForce(transform.right * speed);
         //}
-        var tinpoV = Input.GetAxis("Vertical");
-        var tinpoH = Input.GetAxis("Horizontal");
-        moving = tinpoH * transform.right + tinpoV * transform.forward;
+        var V = Input.GetAxis("Vertical");
+        var H = Input.GetAxis("Horizontal");
+        moving = H * transform.right + V * transform.forward;
         rb.AddForce(moving * speed);
 
     }
