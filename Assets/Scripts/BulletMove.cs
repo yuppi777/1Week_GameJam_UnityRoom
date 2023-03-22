@@ -35,7 +35,18 @@ public class BulletMove : MonoBehaviour
     {
         _thisBulletRb.AddForce(this.gameObject.transform.forward * speed );
     }
-    // Update is called once per frame
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.TryGetComponent<IEnemy>(out IEnemy enemy))
+        {
+           
+            Debug.Log("敵に触れた");
+            Destroy(collision.gameObject);//敵をデストロイ
+            Destroy(this.gameObject);//弾自身をデストロイ
+        }
+    }
     void Update()
     {
         

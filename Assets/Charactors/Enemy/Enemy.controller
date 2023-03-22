@@ -34,7 +34,13 @@ AnimatorController:
   m_PrefabAsset: {fileID: 0}
   m_Name: Enemy
   serializedVersion: 5
-  m_AnimatorParameters: []
+  m_AnimatorParameters:
+  - m_Name: Speed
+    m_Type: 1
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -62,7 +68,7 @@ AnimatorStateMachine:
     m_Position: {x: 346.2, y: 213, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6993699888263707082}
-    m_Position: {x: 454.6754, y: 119.82295, z: 0}
+    m_Position: {x: 500, y: 360, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
