@@ -23,6 +23,12 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     private new GameObject camera;
 
+    [SerializeField]
+    [Header("ƒvƒŒƒCƒ„[‚Ì‘Ì—Í")]
+    private int hp;
+
+    public int Hp { get => hp; set => hp = value; }
+
     private void Awake()
     {
         OnInitialize();
@@ -30,6 +36,7 @@ public class PlayerMove : MonoBehaviour
     }
     void Start()
     {
+       
         LookCus();
     }
 
@@ -54,6 +61,12 @@ public class PlayerMove : MonoBehaviour
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void AnLookCus()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     private void MoveControll()
