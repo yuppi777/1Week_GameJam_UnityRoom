@@ -32,7 +32,11 @@ public class EnemyMove : MonoBehaviour,IEnemy
     [SerializeField]
     private float attackRange = 2f;
 
-    private bool isAttacking = true;//UŒ‚’†‚Å‚ ‚é‚©”Û‚©
+    [SerializeField]
+    [Header("UŒ‚‚Ìƒ^ƒCƒ€ƒŠƒ~ƒbƒg")]
+    private float TimeRange = 30f;
+
+    private bool isAttacking = false;//UŒ‚’†‚Å‚ ‚é‚©”Û‚©
     public void Move()
     {
         
@@ -52,23 +56,34 @@ public class EnemyMove : MonoBehaviour,IEnemy
               if (distance < attackRange)
               {
                   Debug.Log("UŒ‚”ÍˆÍ");
+                  isAttacking = true;
+                 
               }
-              if (distance <= attackRange && !isAttacking)
+              if (distance < attackRange && isAttacking == true)
               {
                   Debug.Log("UŒ‚");
-                  isAttacking = true;
+                  StartCoroutine(TimeLimit());
+                  //isAttacking = false;
                   //isChasing = false;
                   AttackPlayer();
+                  //StartCoroutine(TimeLimit());
               }
               else if (!isAttacking)
               {
-                  AttackPlayer();
+                  //AttackPlayer();
                   TrueIsChasing(playerSarch);
-                  isAttacking = false;
+                  //isAttacking = false;
               }
           })
           .AddTo(this);
 
+    }
+
+    IEnumerator TimeLimit()
+    {
+        isAttacking = false;
+       yield return new WaitForSeconds(TimeRange);
+        isAttacking = true;
     }
 
 
@@ -104,6 +119,8 @@ public class EnemyMove : MonoBehaviour,IEnemy
         }
         Debug.Log(playerMove.Hp);
     }
+
+
 
     private void OnTriggerEnter(Collider other)
     {

@@ -139,8 +139,8 @@ public class PlayerMove : MonoBehaviour
         Movement();
         MoveCamera();
     }
-    private void FixedUpdate()
-    {
-        //RotateControll();
-    }
+    //private void FixedUpdate()
+    //{
+    //    //RotateControll();
+    //}
 }
