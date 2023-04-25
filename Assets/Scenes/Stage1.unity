@@ -3545,6 +3545,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 417789655}
     - target: {fileID: 7837317870597040049, guid: c1b0a68caafad0244807d2dd0775efa1, type: 3}
+      propertyPath: TimeRange
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7837317870597040049, guid: c1b0a68caafad0244807d2dd0775efa1, type: 3}
       propertyPath: playerMove
       value: 
       objectReference: {fileID: 417789650}
@@ -4734,6 +4738,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 417789655}
+    - target: {fileID: 8878948714784671277, guid: 1f298e0bb6db7384b98b6ae4f998fd54, type: 3}
+      propertyPath: TimeRange
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8878948714784671277, guid: 1f298e0bb6db7384b98b6ae4f998fd54, type: 3}
       propertyPath: playerMove
       value: 

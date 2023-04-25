@@ -36,7 +36,7 @@ public class EnemyMove : MonoBehaviour,IEnemy
     [Header("攻撃のタイムリミット")]
     private float TimeRange = 30f;
 
-    private bool isAttacking = false;//攻撃中であるか否か
+    private bool isAttacking = true;//攻撃中であるか否か
     public void Move()
     {
         
@@ -56,17 +56,21 @@ public class EnemyMove : MonoBehaviour,IEnemy
               if (distance < attackRange)
               {
                   Debug.Log("攻撃範囲");
-                  isAttacking = true;
+                  //isAttacking = true;
+                  
                  
               }
               if (distance < attackRange && isAttacking == true)
               {
+                  
                   Debug.Log("攻撃");
                   StartCoroutine(TimeLimit());
-                  //isAttacking = false;
-                  //isChasing = false;
                   AttackPlayer();
-                  //StartCoroutine(TimeLimit());
+                  isAttacking = false;
+                  //isAttacking = false;
+                  isChasing = false;
+
+
               }
               else if (!isAttacking)
               {
@@ -82,6 +86,7 @@ public class EnemyMove : MonoBehaviour,IEnemy
     IEnumerator TimeLimit()
     {
         isAttacking = false;
+        Debug.Log("タイムリミットスタート");
        yield return new WaitForSeconds(TimeRange);
         isAttacking = true;
     }

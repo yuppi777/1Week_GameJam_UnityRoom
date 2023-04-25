@@ -22,6 +22,6 @@ public class Enemy_PlayerSarch : MonoBehaviour
             playerOn = true;
             Debug.Log("P�΂ꂽ");
         }
-        Debug.Log("�Ă΂ꂽ");
+        //Debug.Log("�Ă΂ꂽ");
     }
 }
