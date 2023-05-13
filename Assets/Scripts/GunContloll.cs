@@ -26,6 +26,7 @@ public class GunContloll : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
+            AudioManager.Instance.PlaySE("shot");
           GameObject prefab= Instantiate(bulletprefab, shotArea.position, Quaternion.identity);
             //prefab.transform.Rotate(-90, 0, 0);
             prefab.transform.Rotate(Camera.main.transform.eulerAngles);

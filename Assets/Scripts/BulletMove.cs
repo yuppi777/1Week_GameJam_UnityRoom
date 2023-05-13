@@ -10,6 +10,12 @@ public class BulletMove : MonoBehaviour
     [SerializeField]
     private float speed;
 
+    [SerializeField]
+    [Header("弾が消えるまでの時間")]
+    private float destime = 30;
+
+    private Animator enemyAnimator;//敵のアニメーターを格納する
+
     
 
     private void Awake()
@@ -28,6 +34,7 @@ public class BulletMove : MonoBehaviour
     void Start()
     {
         BulletAddForce();
+        StartCoroutine(DestroyBullet());
     }
 
 
@@ -43,12 +50,25 @@ public class BulletMove : MonoBehaviour
         {
            
             Debug.Log("敵に触れた");
-            Destroy(collision.gameObject);//敵をデストロイ
+            enemyAnimator = collision.gameObject.GetComponent<Animator>();
+            enemyAnimator.SetTrigger("Death");
+            //Destroy(collision.gameObject);//敵をデストロイ
             Destroy(this.gameObject);//弾自身をデストロイ
         }
     }
     void Update()
     {
-        
+        if (this.transform.position.y <= -20)
+        {
+ 
+            Destroy(this);
+        }
+    }
+
+    IEnumerator DestroyBullet()
+    {
+
+        yield return new WaitForSeconds(destime);
+        Destroy(this.gameObject);
     }
 }

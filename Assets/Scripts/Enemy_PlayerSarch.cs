@@ -20,8 +20,17 @@ public class Enemy_PlayerSarch : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerOn = true;
-            Debug.Log("P�΂ꂽ");
+            //Debug.Log("P�΂ꂽ");
         }
         //Debug.Log("�Ă΂ꂽ");
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            //playerOn = false;
+           
+        }
+    }
+
 }
